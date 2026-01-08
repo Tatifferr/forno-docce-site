@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forno Docce | Confeitaria artesanal</title>
+  <meta name="description" content="Bolos personalizados, doces finos e kits festa feitos com carinho. Peça seu orçamento pelo WhatsApp." />
+  <meta name="keywords" content="confeitaria artesanal, biscoitos, Rio Grande do Sul" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Títulos manuscritos (legível) + corpo limpo -->
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --rosa:#f7dfe7;
+      --creme:#fff8f0;
+      --marrom:#6b4f3d;
+      --marrom-claro:#9b7b62;
+      --branco:#ffffff;
+      --bege:#f3e7db;
+      --acent:#ff8fa3; /* para CTA */
+      --acent-hover:#ff718a;
+      --cinza:#666;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+      --radius:14px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--creme);color:#2a2a2a;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    /* Header */
+    .header{
+      position:sticky;top:0;z-index:999;
+      background:rgba(255,255,255,.85);backdrop-filter:saturate(1.2) blur(8px);
+      border-bottom:1px solid #eee;
+    }
+    .nav{
+      max-width:var(--max);margin:0 auto;padding:10px 20px;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .logo{
+      display:flex;align-items:center;gap:10px;
+    }
+    .logo-mark{
+      width:42px;height:42px;border-radius:50%;
+      background:linear-gradient(135deg,var(--rosa),var(--bege));
+      display:grid;place-items:center;box-shadow:var(--shadow);
+      border:1px solid #f0d7cf;
+    }
+    .logo-title{
+      font-family:'Parisienne',cursive;font-size:1.6rem;color:var(--marrom);
+      line-height:1;
+    }
+    .menu{
+      display:flex;align-items:center;gap:24px;font-weight:600;
+    }
+    .menu a{color:#444}
+    .menu a:hover{color:var(--marrom)}
+    .whatsapp-top{
+      display:flex;align-items:center;gap:8px;background:var(--acent);color:var(--branco);
+      padding:10px 14px;border-radius:999px;font-weight:700;box-shadow:var(--shadow)
+    }
+    .whatsapp-top:hover{background:var(--acent-hover)}
+    .hamburger{display:none;font-size:24px;background:none;border:none}
+
+    /* Hero */
+    .hero{
+      max-width:var(--max);margin:24px auto;display:grid;grid-template-columns:1.1fr .9fr;gap:28px;padding:0 20px;
+    }
+    .hero-card{
+      background:var(--branco);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;border:1px solid #f1e9df;
+    }
+    .hero-media{
+      height:320px;background:
+        linear-gradient(180deg,rgba(247,223,231,.3),rgba(255,255,255,0)),
+        url('./imagens/confeitando.png') center/cover no-repeat;
+    }
+    .hero-content{padding:22px}
+    .hero h1{
+      font-family:'Parisienne',cursive;color:var(--marrom);
+      font-size:2.2rem;margin:0 0 8px
+    }
+    .hero p{color:#4d4d4d;margin:0 0 16px}
+    .cta{
+      display:inline-flex;align-items:center;gap:10px;background:var(--acent);color:var(--branco);
+      padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:var(--shadow)
+    }
+    .cta:hover{background:var(--acent-hover)}
+    .hero-side{
+      background:var(--rosa);border-radius:var(--radius);padding:20px;border:1px solid #f0d7cf
+    }
+    .hero-side h3{margin:0 0 14px;color:var(--marrom)}
+    .badges{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .badge{
+      background:var(--branco);border:1px solid #f1e9df;border-radius:10px;padding:12px;
+      display:flex;gap:10px;align-items:center;color:#5b4a42
+    }
+
+    /* Destaques */
+    .section{max-width:var(--max);margin:36px auto;padding:0 20px}
+    .title{
+      font-family:'Parisienne',cursive;color:var(--marrom);font-size:2rem;margin:0 0 14px;text-align:center
+    }
+    .subtitle{color:#5a5a5a;text-align:center;margin:0 auto 24px;max-width:740px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:var(--branco);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;border:1px solid #f1e9df
+    }
+    .card h4{margin:0 0 8px;color:var(--marrom)}
+    .card p{margin:0;color:#555}
+    .card .thumb{height:160px;border-radius:12px;background:#f7f1ea;margin-bottom:12px;background-position:center;background-size:cover}
+
+    /* Depoimentos */
+    .testimonials{
+      background:var(--bege);border-radius:var(--radius);padding:22px;border:1px solid #eadbca
+    }
+    .testi-list{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .testi{
+      background:var(--branco);border:1px solid #f1e9df;border-radius:12px;padding:14px;color:#4d4d4d;box-shadow:var(--shadow)
+    }
+
+    /* Sobre */
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .about .photo{border-radius:var(--radius);overflow:hidden;border:1px solid #f1e9df;box-shadow:var(--shadow)}
+    .about .copy{background:var(--branco);border-radius:var(--radius);padding:18px;border:1px solid #f1e9df}
+    .impact{font-family:'Parisienne',cursive;color:var(--marrom);font-size:1.6rem;margin-top:12px}
+
+    /* Cardápio */
+    .menu-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .menu-item{background:var(--branco);border:1px solid #f1e9df;border-radius:14px;padding:16px}
+    .menu-item h5{margin:0 0 8px;color:var(--marrom)}
+    .price{color:var(--marrom-claro);font-weight:700}
+
+    /* Galeria */
+    .gallery{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:10px
+    }
+    .gallery figure{margin:0;border-radius:12px;overflow:hidden;border:1px solid #f1e9df;box-shadow:var(--shadow)}
+    .gallery figcaption{padding:8px;background:#fff;font-size:.95rem;color:#4a4a4a}
+
+    /* Encomendas */
+    .form{
+      background:var(--branco);border-radius:var(--radius);padding:18px;border:1px solid #f1e9df;box-shadow:var(--shadow)
+    }
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:flex;flex-direction:column;margin-bottom:12px}
+    .field label{font-weight:600;color:#4d4d4d;margin-bottom:6px}
+    .field input,.field select,.field textarea{
+      padding:12px;border:1px solid #e3d8cc;border-radius:10px;background:#fff
+    }
+    .helper{color:#777;font-size:.95rem;margin-top:6px}
+    .warn{background:#fff3cd;border:1px solid #ffe69c;color:#7f6a2b;padding:10px;border-radius:10px;margin-top:10px}
+
+    /* Contato */
+    .contact{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:18px
+    }
+    .contact .card{height:100%}
+    .contact-list{display:grid;gap:8px}
+    .contact-item{display:flex;gap:10px;align-items:center}
+
+    /* CTA final */
+    .cta-final{
+      display:flex;justify-content:center;margin:20px 0
+    }
+
+    /* WhatsApp flutuante */
+    .wa-float{
+      position:fixed;right:14px;bottom:14px;z-index:1000;
+      background:#25d366;color:#fff;border-radius:999px;padding:12px 16px;font-weight:800;
+      box-shadow:var(--shadow)
+    }
+    .wa-float:hover{background:#1eb85a}
+
+    /* Footer */
+    .footer{
+      margin-top:30px;background:#fff;border-top:1px solid #eee
+    }
+    .footer .inner{
+      max-width:var(--max);margin:0 auto;padding:18px 20px;color:#666;display:flex;justify-content:space-between;align-items:center
+    }
+
+    /* Responsivo */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .badges{grid-template-columns:1fr 1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .testi-list{grid-template-columns:1fr 1fr}
+      .about{grid-template-columns:1fr}
+      .menu-cats{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr 1fr 1fr}
+      .contact{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .menu{display:none}
+      .hamburger{display:block;color:#4a3b31}
+      .grid-3{grid-template-columns:1fr}
+      .testi-list{grid-template-columns:1fr}
+      .menu-cats{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+    }
+
+    /* Utilitários ícones simples */
+    .icon{width:22px;height:22px;display:inline-block;border-radius:6px;background:var(--rosa);border:1px solid #f0d7cf}
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav" aria-label="Menu principal">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true">🍰</div>
+        <div class="logo-title">Forno Docce</div>
+      </div>
+      <button class="hamburger" aria-label="Abrir menu" onclick="toggleMenu()">☰</button>
+      <div class="menu" id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#encomendas">Encomendas</a>
+        <a href="#contato">Contato</a>
+        <a class="whatsapp-top" href="https://wa.me/5551XXXXXXXX?text=Olá%20Tati!%20Quero%20um%20orçamento%20para%20minha%20comemoração." target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </nav>
+  </header>
+
+</div>
+
+  <!-- Hero / Início -->
+   
+  <section id="inicio" class="hero" aria-labelledby="hero-title">
+    <div class="hero-card">
+      <div class="hero-media"  role="img" aria-label="Bolo artesanal com flores em tom pastel"></div>
+      <div class="hero-content">
+        <h1 id="hero-title">Doces artesanais para momentos inesquecíveis</h1>
+        <p>Confeitaria personalizada, feita com carinho, ingredientes selecionados e aquele toque caseiro que todo mundo ama.</p>
+        <a class="cta" href="https://wa.me/5551XXXXXXXX?text=Olá%20Tati!%20Quero%20um%20orçamento." target="_blank" rel="noopener">Peça seu orçamento</a>
+      </div>
+    </div>
+    <aside class="hero-side">
+      <h3>Destaques do cardápio</h3>
+      <div class="badges">
+        <div class="badge"><span class="icon"></span> <div><strong>Bolos personalizados:</strong> Feitos sob medida para cada celebração.</div></div>
+        <div class="badge"><span class="icon"></span> <div><strong>Doces finos:</strong> Elegância e sabor em cada detalhe.</div></div>
+        <div class="badge"><span class="icon"></span> <div><strong>Kits para festa:</strong> Praticidade e delicadeza para comemorações completas.</div></div>
+        <div class="badge"><span class="icon"></span> <div><strong>Atendimento:</strong> Acolhedor, pontual e artesanal.</div></div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="section">
+    <h2 class="title">O que dizem os clientes</h2>
+    <p class="subtitle">Depoimentos reais que reforçam sabor, beleza e atendimento.</p>
+    <div class="testimonials">
+      <div class="testi-list" id="testiList">
+        <div class="testi">“Os biscoitos estavam maravilhosos, todos elogiaram!”</div>
+        <div class="testi">“Doces lindos e saborosos, atendimento impecável.”</div>
+        <div class="testi">“A festa ficou ainda mais especial com os kits.”</div>
+        <div class="testi">“Pontualidade e carinho em cada detalhe.”</div>
+      </div>
+    </div>
+    <div class="cta-final">
+      <a class="cta" href="https://wa.me/5551XXXXXXXX?text=Oi%20Tati,%20podemos%20conversar%20sobre%20meu%20evento%3F" target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre" class="section about" aria-labelledby="sobre-title">
+    <div class="photo">
+      <img src="imagens\ginger-biscoito.jpg.jpg" alt="Ateliê de confeitaria preparando biscoitos" />
+    </div>
+    <div class="copy">
+      <h2 id="sobre-title" class="title" style="text-align:left">Sobre o Forno Docce</h2>
+      <p>O Forno Docce nasceu do amor por transformar momentos simples em memórias doces. Começou com bolos para família e amigos, e o carinho dos pedidos cresceu até a profissionalização.</p>
+      <p>Cada biscoito e doce é feito de forma artesanal, com escolha cuidadosa dos ingredientes e atenção aos detalhes da decoração.</p>
+      <p><strong>Valores:</strong> qualidade, carinho, pontualidade, higiene e atendimento personalizado.</p>
+      <p class="impact">“Minha missão é adoçar suas comemorações com muito carinho e responsabilidade.”</p>
+    </div>
+  </section>
+
+  <!-- Cardápio -->
+  <section id="cardapio" class="section" aria-labelledby="cardapio-title">
+    <h2 id="cardapio-title" class="title">Cardápio</h2>
+    <p class="subtitle">Principais produtos organizados por categorias. Consulte valores base e opções personalizadas.</p>
+
+    <div class="menu-cats">
+      <div class="menu-item">
+        <h5>Bolos</h5>
+        <div class="card">
+          <div class="thumb" style="background-image:url('./imagens/3-bolos-potes.png')"></div>
+          <h4>Bolos personalizados e de pote</h4>
+          <p><strong>Massa:</strong> branca ou chocolate. <strong>Recheios:</strong> brigadeiro, beijinho, mousse de leite ninho.</p>
+          <p><strong>Tamanhos:</strong> 15, 20 e 25 cm. <span class="price">a partir de R$ 180</span></p>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <div class="thumb" style="background-image:url('imagens/biscoito-2arvores.png')"></div>
+          <h4>Brownies</h4>
+          <p>Diferentes sabores de massa incluindo nozes e castanhas.</p>
+          <p><strong>Tamanhos:</strong> 15–25 cm. <span class="price">a partir de R$ 230</span></p>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <h5>Biscoitos</h5>
+        <div class="card">
+          <div class="thumb" style="background-image:url('imagens/biscoito-luva.png')"></div>
+          <h4>Bolachas e biscoitos</h4>
+          <p><strong>Sabores:</strong> tradicional, meio amargo, pistache, ninho com nutella.</p>
+          <p><strong>Quantidade mínima:</strong> 25 unidades. <span class="price">R$ 3,50 por unidade</span></p>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <div class="thumb" style="background-image:url('imagens/hortela-pote.png')"></div>
+          <h4>Pães de Mel</h4>
+          <p>Massa, cravo e acabamento delicado.</p>
+          <p><strong>Quantidade mínima:</strong> 25 unidades. <span class="price">R$ 3,50 por unidade</span></p>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <h5>Kits festa</h5>
+        <div class="card">
+          <div class="thumb" style="background-image:url('imagens/pote-brownie.png')"></div>
+          <h4>Kit Festa 20 pessoas</h4>
+          <p><strong>Inclui:</strong> bolo 20 cm, 100 doces variados, 24 mini cupcakes.</p>
+          <p><span class="price">a partir de R$ 580</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-final">
+    <a class="cta" href="orcamento.html">
+    Quero solicitar um orçamento
+    </a>
+
+    </div>
+  </section>
+
+  <!-- Galeria -->
+  <section id="galeria" class="section" aria-labelledby="galeria-title">
+    <h2 id="galeria-title" class="title">Galeria</h2>
+    <p class="subtitle">Portfólio visual com variedade de estilos e temas.</p>
+    <div class="gallery">
+      <figure>
+        <img src="./imagens/pao-demel.png" alt="biscoitos decorados – tema floresta">
+        <figcaption>Biscoitos – bolachas natalinas</figcaption>
+      </figure>
+      <figure>
+        <img src="./imagens/bolos-flores.png" alt="Mesa de doces – Chá revelação">
+        <figcaption>Bolos – diferentes recheios e massas</figcaption>
+      </figure>
+      <figure>
+        <img src="./imagens/donuts.png" alt="Donuts – simples ou recheados">
+        <figcaption>Bolo de casamento – flores brancas</figcaption>
+      </figure>
+      <figure>
+        <img src="./imagens/embalagens-presente.png" alt="Caixa gourmet – presente">
+        <figcaption>Caixa de brigadeiros gourmet – presente</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Encomendas -->
+  <section id="encomendas" class="section" aria-labelledby="encomendas-title">
+    <h2 id="encomendas-title" class="title">Encomendas</h2>
+    <p class="subtitle">Preencha o formulário e receba um retorno com o orçamento o mais rápido possível.</p>
+
+    <form class="form" id="formOrcamento">
+      <div class="row">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" required placeholder="Seu nome completo">
+        </div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="telefone">Telefone/WhatsApp</label>
+          <input type="tel" id="telefone" name="telefone" required placeholder="(51) 9xxxx-xxxx">
+        </div>
+        <div class="field">
+          <label for="tipo">Tipo de pedido</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Selecione...</option>
+            <option value="bolo">Bolo</option>
+            <option value="doces">Doces</option>
+            <option value="kit">Kit festa</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="data">Data do evento</label>
+          <input type="date" id="data" name="data" required>
+        </div>
+        <div class="field">
+          <label for="convidados">Número de convidados</label>
+          <input type="number" id="convidados" name="convidados" min="1" step="1" required placeholder="Ex.: 30">
+        </div>
+      </div>
+      <div class="field">
+        <label for="descricao">Descreva seu pedido</label>
+        <textarea id="descricao" name="descricao" rows="5" placeholder="Tema, sabores, cores, restrições alimentares, referências etc."></textarea>
+      </div>
+      <div class="warn">Encomendas devem ser feitas com pelo menos 5 dias de antecedência. Datas muito concorridas exigem reserva antecipada.</div>
+      <div style="margin-top:12px">
+        <button type="submit" class="cta">Enviar pedido de orçamento</button>
+      </div>
+      <div class="helper" id="formHelper" aria-live="polite"></div>
+    </form>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="section contact" aria-labelledby="contato-title">
+    <div class="card">
+      <h2 id="contato-title" class="title" style="text-align:left">Contato</h2>
+      <div class="contact-list">
+        <div class="contact-item"><span class="icon"></span> <strong>WhatsApp:</strong> (51) 9XXXX-XXXX</div>
+        <div class="contact-item"><span class="icon"></span> <strong>E-mail:</strong> contato@docurasdatati.com.br</div>
+        <div class="contact-item"><span class="icon"></span> <strong>Instagram:</strong> @docurasdatati</div>
+        <div class="contact-item"><span class="icon"></span> <strong>Endereço:</strong> Ateliê em Canoas/RS (retirada sob consulta)</div>
+        <div class="contact-item"><span class="icon"></span> <strong>Horário:</strong> Seg–Sex, 9h–18h</div>
+      </div>
+      <div class="cta-final" style="justify-content:flex-start;margin-top:14px">
+        <a class="cta" href="https://wa.me/5551999999999?text=Olá%20Gostaria%20de%20conversar%20sobre%20minha%20encomenda." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+    </div>
+    <div class="card">
+      <iframe title="Mapa Canoas RS" style="border:0;width:100%;height:280px;border-radius:12px" loading="lazy" allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.908!2d-51.18!3d-29.92!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sCanoas%2C%20RS!5e0!3m2!1spt-BR!2sBR!4v0000">
+      </iframe>
+      <p class="helper">Mapa ilustrativo. Atualize com o endereço exato se houver retirada no local.</p>
+    </div>
+  </section>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a class="wa-float" href="https://wa.me/5551999999999?text=Oi%20Tati!%20Quero%20um%20orçamento%20para%20meu%20evento." target="_blank" rel="noopener" aria-label="Abrir conversa no WhatsApp">WhatsApp</a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="inner">
+      <div>© 2026 Forno Docce — Confeitaria artesanal</div>
+      <div>Feito com carinho</div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle menu mobile
+    function toggleMenu(){
+      const menu = document.getElementById('menu');
+      const isVisible = getComputedStyle(menu).display !== 'none';
+      menu.style.display = isVisible ? 'none' : 'flex';
+      if(!isVisible){ menu.style.flexDirection = 'column'; menu.style.gap = '12px'; }
+    }
+
+    // Depoimentos: alternar automaticamente em telas pequenas
+    (function(){
+      const list = document.getElementById('testiList');
+      if(!list) return;
+      let idx = 0;
+      const interval = 4000;
+      const items = Array.from(list.children);
+      function cycle(){
+        if(window.innerWidth > 640){ // grid completo em telas grandes
+          items.forEach(el => el.style.display = 'block');
+          return;
+        }
+        items.forEach((el,i)=>{ el.style.display = (i === idx) ? 'block' : 'none'; });
+        idx = (idx + 1) % items.length;
+      }
+      cycle();
+      setInterval(cycle, interval);
+      window.addEventListener('resize', cycle);
+    })();
+
+    // Formulário: validação e montagem de mensagem para WhatsApp
+    document.getElementById('formOrcamento').addEventListener('submit', function(e){
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const telefone = document.getElementById('telefone').value.trim();
+      const tipo = document.getElementById('tipo').value;
+      const data = document.getElementById('data').value;
+      const convidados = document.getElementById('convidados').value;
+      const descricao = document.getElementById('descricao').value.trim();
+      const helper = document.getElementById('formHelper');
+
+      if(!nome || !email || !telefone || !tipo || !data || !convidados){
+        helper.textContent = 'Por favor, preencha todos os campos obrigatórios.';
+        helper.style.color = '#b00020';
+        return;
+      }
+
+      // Monta mensagem amigável
+      const msg = `Olá! Meu nome é ${nome}.%0A`+
+                  `Tipo de pedido: ${tipo}.%0A`+
+                  `Data do evento: ${data}.%0A`+
+                  `Convidados: ${convidados}.%0A`+
+                  `Telefone: ${telefone}.%0A`+
+                  `E-mail: ${email}.%0A`+
+                  `Descrição: ${descricao || '—'}.%0A`+
+                  `Pode me enviar um orçamento, por favor?`;
+
+      const waUrl = `https://wa.me/5551999999999?text=${msg}`;
+      helper.textContent = 'Abrindo o WhatsApp...';
+      helper.style.color = '#1eb85a';
+      window.open(waUrl, '_blank', 'noopener');
+    });
+  </script>
+</body>
+</html>
